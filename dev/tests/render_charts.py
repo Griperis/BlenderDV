@@ -54,43 +54,43 @@ CONFIGURATIONS = [
         bpy.ops.data_vis.geonodes_line_chart,
         axis={"X": "Categorical", "Z": "Numeric"},
     ),
-    ChartConfiguration(
-        "Point Chart Categorical 2D",
-        "species_2D.csv",
-        "Cat_2D",
-        bpy.ops.data_vis.geonodes_point_chart,
-        axis={"X": "Categorical", "Y": "Numeric"},
-    ),
-    ChartConfiguration(
-        "Pie Chart Categorical 2D",
-        "species_2D.csv",
-        "Cat_2D",
-        bpy.ops.data_vis.geonodes_pie_chart,
-        axis={"X": "Categorical", "Y": "Numeric"},
-        out_rotation=(math.radians(90), 0, 0),
-        out_location=(0.5, 0.5, 0.5),
-    ),
-    ChartConfiguration(
-        "Bar Chart Numerical 3D",
-        "x+y_3D.csv",
-        "3D",
-        bpy.ops.data_vis.geonodes_bar_chart,
-        axis={"X": "Numeric", "Y": "Numeric", "Z": "Numeric"},
-    ),
-    ChartConfiguration(
-        "Point Chart Numerical 3D",
-        "x+y_3D.csv",
-        "3D",
-        bpy.ops.data_vis.geonodes_point_chart,
-        axis={"X": "Numeric", "Y": "Numeric", "Z": "Numeric"},
-    ),
-    ChartConfiguration(
-        "Surface Chart Numerical 3D",
-        "x+y_3D.csv",
-        "3D",
-        bpy.ops.data_vis.geonodes_surface_chart,
-        axis={"X": "Numeric", "Y": "Numeric", "Z": "Numeric"},
-    ),
+    # ChartConfiguration(
+    #     "Point Chart Categorical 2D",
+    #     "species_2D.csv",
+    #     "Cat_2D",
+    #     bpy.ops.data_vis.geonodes_point_chart,
+    #     axis={"X": "Categorical", "Y": "Numeric"},
+    # ),
+    # ChartConfiguration(
+    #     "Pie Chart Categorical 2D",
+    #     "species_2D.csv",
+    #     "Cat_2D",
+    #     bpy.ops.data_vis.geonodes_pie_chart,
+    #     axis={"X": "Categorical", "Y": "Numeric"},
+    #     out_rotation=(math.radians(90), 0, 0),
+    #     out_location=(0.5, 0.5, 0.5),
+    # ),
+    # ChartConfiguration(
+    #     "Bar Chart Numerical 3D",
+    #     "x+y_3D.csv",
+    #     "3D",
+    #     bpy.ops.data_vis.geonodes_bar_chart,
+    #     axis={"X": "Numeric", "Y": "Numeric", "Z": "Numeric"},
+    # ),
+    # ChartConfiguration(
+    #     "Point Chart Numerical 3D",
+    #     "x+y_3D.csv",
+    #     "3D",
+    #     bpy.ops.data_vis.geonodes_point_chart,
+    #     axis={"X": "Numeric", "Y": "Numeric", "Z": "Numeric"},
+    # ),
+    # ChartConfiguration(
+    #     "Surface Chart Numerical 3D",
+    #     "x+y_3D.csv",
+    #     "3D",
+    #     bpy.ops.data_vis.geonodes_surface_chart,
+    #     axis={"X": "Numeric", "Y": "Numeric", "Z": "Numeric"},
+    # ),
 ]
 
 
@@ -115,7 +115,7 @@ def setup_scene():
 
     bpy.context.scene.render.resolution_x = 512
     bpy.context.scene.render.resolution_y = 512
-    bpy.context.scene.render.engine = "BLENDER_EEVEE_NEXT"
+    bpy.context.scene.render.engine = "BLENDER_WORKBENCH"
 
 
 def render_configurations(
