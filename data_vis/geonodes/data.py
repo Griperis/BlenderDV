@@ -103,11 +103,8 @@ class DV_DataProperties(bpy.types.PropertyGroup):
         ),
     }
 
-    def set_current_types(self, current_types: set[str]) -> None:
-        type(self).current_types = current_types
-
     def _get_data_types_enum(self, context: bpy.types.Context):
-        types = get_data_types() & type(self).current_types
+        types = get_data_types()
         return [
             (
                 t,
@@ -116,6 +113,20 @@ class DV_DataProperties(bpy.types.PropertyGroup):
             )
             for t in types
         ]
+
+
+def get_current_data_types_enum(
+    self, context: bpy.types.Context, current_types: set[str]
+):
+    types = get_data_types() & current_types
+    return [
+        (
+            t,
+            DV_DataProperties.DATA_TYPE_ENUM_MAPS[t][0],
+            DV_DataProperties.DATA_TYPE_ENUM_MAPS[t][1],
+        )
+        for t in types
+    ]
 
 
 @dataclasses.dataclass
@@ -261,7 +272,7 @@ def _convert_data_to_geometry(
                         )
                     )
 
-        return verts, edges, faces, data
+        return np.array(verts), edges, faces, data
     else:
         if connect_edges:
             edges = [(i, i + 1) for i in range(len(data.vert_positions) - 1)]
